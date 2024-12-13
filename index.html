@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sandesh's Portfolio</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="script" href="app.js" />
+  </head>
+  <body>
+    <header>
+      <div id="logo">
+        <!-- <img src="/assets/HF_logo.jpg" alt="Hydro_flare_logo"
+            height="48px" height="auto"> -->
+        <!-- <button>S</button> -->
+        <img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAE5hJREFUeF7tXQt0lNW1/s4/SQivvJgEoohXZiCgrY9egWomrLoUqaCtSINFsVVQKUUuPhAoegu0qBApgpRLUV5WLArSsOr7tbxlBigiilIFJMEqQkIyeRPynP/cu/9J0oRkkv85/5kh/1qsxVo5Z5+99/nmPPbZD4Yo/I6lXeuSZMewAONuB2cXA3wggAEccDIgiQN9AMQzIIbE50AjgFoGnOFAOQP8AAoB9l2A8W8cnOXJUuDIkKI9+dGmLhbpAh3td82FDknyMC6NAvjVHLgSQF+L5KpiwEGAfcyZvC8gy76Mkr0nLRorLGQjEgDH0rLGSrI8lnN2Axi+HxZNhRqE4xBj/H1Zkt4ZUuR9x1ZedAweMQD4ypk13sH5RDDcyoFkHbJa3oUBZeDYGWBsx1C/9w3LBzRhAKEBcNyZmcGZ9EvO+RQAF5kgbzhJnGCMbWFcfmGwf/fRcA6sZSwhAUBLPON8OjgmaBFG2LYMuZyxdSJuEUIB4KuUayc6JGk2B7KEnUwDjDHAG5DlVUNL9+wwQMbUrkIAgPZ3CXweonTiO5gxrwy2TIRzgq0AOJrmucLBsTBqlnqtv02G3ADD4owi32dau5rV3jYA5KdmPck5/41ZgkQyHcbYU65i7wI7ZAg7APJTR4/jXF4OYLgdAgs85mHGpDmu4l1vhpPHsAIg35m5goM9FE4BI20sBv6My7/74XDxHRYA5Dk9/wmwtQAfES7BInscth/gM9x+3wGr5bAcAPmpnqmcYz0Ay8eyWllhps8Zw72uYt9GK8e1dFLynJk5AHvUSgGinzZ/2u3fPdcqOS0BAEe247izYCsHsq1i/Hyiy4Dtg/3pkxm2B8yW23QAHE8b1V+WY7efR0Yds+ckFD2vJDVkDy7ad9rMAU0FADlisICUa/sTrZkaEokWxyHukCeY6ZhiGgCOODMzYsBeAzBEJJ1FIS/HGsFvGWbSC6MpAFB++bL0Vvfkhw1ux7gk32TGSmAYAMqeH4h9r3vZD9vkBwfiOCQ5GsYYPRMYAgCd9vOdBR92H/jCPPn/Hs7r8qdfZ+R2YAgA+U7Ptu6rnm2TrwxMV0SX3zdJLxe6ARBJRp6eWT9A7x97EJdxCRwDnIjp3w+IjYEU3wNwSO10x+sbQP8CJeUIFPpR90U+arwHUP363/Xq2eJ++o1FugDQZN7dYLFUusnHXJCKhHsmoPeYaxA7eCBYz3jdtFp35HX1aMj7FtXv7UXlplw0nio2ha4ZRBjDND1mY80ACD7sYL+Itv3e40cj6YE70OPyoWBxsWboNSQNWiHqv8hDxfodqNomhDc4BzBC6wOSDgBkfSTaq17fSWOR9OufI+5SF8A0i2QMKJyj4euTqFi3DRUbc43RMtyb7Xf7vSO1kNGkLdHe8+My/gPOJ2YjPvMqsBiHFrnNb8s56g4dQ+mSdTj74Ufm01dJUas/gWoANHnyCBPskHDnzUieOxW034v08do6VL70hgIE+cxZW1hjTBqv1rNINQDynJ4vRXHjSn70HmXJl/r0skXBXQ4akHH2fz9C8cM5dh0UD7v9vku75FPtQU4kB86Ux+5H0ozbwXrEqZHPvjaco2bXARTe/ZgtK4FaR9MuVwDFdVumiFj7PzMmn9fUouHbQtT/8xjqDh5BY3GZ8v/6o/9qEZC2lfhRlwf/XX0Z4oZerO8qGZBR9eq7KHrgCVuUF5BwZVcu510CIC/V81cR/PZ7Xf9DpK6Yq2vPpytb3SdfKte1yhfpwVLbR4BImnUn+tx2AxwpiZo6y2drlfNAxfOvaupnSmOGXHex77bOaHUKgKaInddNYcYAEdrrB/z5KZBFT8vHGwOo3fsZyv6wGTW7P9XStV1bWgnS1i1E7KB0zXRopTk1YbYtW4EMdnNnEUidAiDP6dklwkNP0uwpSJlzNxiZblV+cmU1ytdsRdmKF1T26LxZ6tOPIOEXPwGk9qbjrgaQq6rhX7AKVS/Ti3nYP6/b7xsdatSQAKBATUmSbFi32rJKv/70V5YjfqT6PBByxRmULFmHys07TdP2wA82KBZGXZ8so2LTTvjnP6Oru9FOsiz/LFRAakgA5Ds9u0SI0u0zcQxSlz4EKUld1hey15evfQWlTzxnVG8t/WnrSVvzOGLS9dscyDhUMOkR03jSQoiikl0hVoEOAaDE58v8bS2DWNU2bdV89J08TrWJl65epyY+aCo7CghzHoGU0Fs3XSv40sIMl9iPO8pP0CEARDn5k4AXvrkW8SO+p0pWuboGpb9ba7pNvvfYTKSunAeHU39mGrsBgBA3gnYAoLQsMtgRVRq3uFH8D69A/3ULVV/96o98jZM3/cr003aPq4ZjwIbfIeaiAbolrn7bh8K77A2GlsCHnZuuph0ARLL6aV16z+z8AKfvW6R7kjrreOFrfwQBUs9Hdojy1S+hdKm9LhQdWQfbASDP6flWlIRM9MzrXPawOpu/xSdtPVfRZrA0fFuAoumLUfvxF3rwY2afE26/b1Brgm0AIIrhp5nBlPnTFAucGucOq39lijFq8xPoOZoCnbs0oLbo2IpbiRFEnGsYaiNJfj/PRs5wj5EBzOwrEgBILvI/6P/coqDjiZrP5reAjlhkHJtcJb6pzX9rCwCnp1SkJIzJc+5G8kO/ULUCkEBkaSua9aSaqdHdRnFCyXkEPa+5otOVgH75VdvfRcl/rzb9UKqb+eDzb5nL70tpBwCR7v7NzGk6AwCKR86pnzwQFoUTbwl336p4Gkt9ewXBEJARKC1HzZ6DqNy00/D7g5GJ7qxva5tAywogmrsXCaD1/k3eOKXLN6N81RardBcVdFu7jbUAIK+f53PRwrtiXRchfWsOYi+hbO/qPrIFnL73t23e99X1PI9acRxyl/guJ4kVACgp15njOxFVcMGOlcGTt9rPZk8ctWza3S7AAwMp1b0CgLzUzNvB2ct2M9XR+P0Wz0Ti/dnavH45R+2+z1E8Z3n3ShBqUhn/ubt49ysKAPKdWSs4uJDp28gTKG31b+BIbTm4qsNpk79+yaI1qH7Lp67PedSKgT3j8nsfbgKAGE+/ofSf/pcc9Bpzja7pIceQqm1vK8/Ddrlp62Lc4k7NT8TBLcDpqbSwzIphURLuugX9Fv4aUiKV+tHxCRK0oYNzK7tUuf2+BNaU3SPPypHMoD1gy1L0vvFaTWbYc8dVfAR3f4rSpetFsMuboRZDNLgku1m+M2s8B7fd8bMrSYx4BbcDQl09zr63V/EZFOCBpivRLfs7A7uZfZXqmS1xrLRsFBMJmxEX0JodOhPQAbF0yZ/siuAxUTvaSckMD9IKIOwNoCOR0v74GPr+7MYOEztoV0GwBx0Uq9/4u7I1iBTzr1cetf3oJsAiLc2L3mdZNUqRy6uUSJ7z5cZA6WUIAEJ4/6qZoOY2BIL+G3+PXj8aYehQGGrMQGmFEkVUtmxDVF8d6SrIRIr61QqCtNUL0PumLFO3gxYeOEeguAzl67ah/NmXtLAWSW0P0wpwigPa450EEdO5ZBb63nmzOrcxPTyTRfGbUyhfuQWVLwl/WdIkIQMKaAUQ2gikRqK+2TcqySJiL77Aki2BeIhSG0IVAaAegLUZldTMosE2FMHbb9FM9B6XZWnugCgzLTfQFiDzKKrm0eu6kUh5fDp6XOa25mygLAfBbaEsZ6Pi9hWpHwN41AGgeTIoh1DiryYpjpxavHi1TKaofn9qZVAAEC1bQCihE6dOUJJGWgYEemg6eEQJ/45As3JDVBwC1SCegJA4fRJiL7nQkhWBLIhkUo6wLaEq4q+Baia/dRvKLpYwdUIw04eGAA8149ABsWzln1G++i9qmtvepvkaKEz6t3BqJOm/7kTi1NuCgacmAoEemMr/52WUPb0pnOLoHUsxBEWcKVivtB31swIIVmQoMVPmZlqKKTjSHoOsUAS9LSTPmwYK9tCaBSwUP3QmoESRZz/4hxUsm0Kz6TEosp6DTZE8BBGzjUmUTbxw2m/RkH/CSrZ101aegyPJIUS3pBo7thiTvj/E2PkgIKNis33JoboSu9khJCJcwroSxoq/pyy4D4nTJhrKDdRYUIyimUtQ4/3EChYN0VRcwiLFKdSQpAY602rQ7/ezlHSxum4LnONM7gc4PX2xAS6s6ao4hRLpaHgRtEZFQap0NqA0tb1+NFLX+0LjiUKcvn+RaJbCoFs4CXi+XwXVgIduCpQXoM+E67WFqdHbkSA5glrL2SYwJNIcQ9VMmFVt9Dql2p4m7hyFtAkNEzk41KqJ1EtXr1Nqw9ffoWDyXHGuhK2DQ0UOD9c7UVb205M5XC6rVKKVz/yNCq3a/7UJD1cOggImiLBfTaE50JLAiqgo2UtyNorxUHRugojgQTBzBQcTMkRcRCAo2Uu2LEWsu03avZCsKgfBNVtR+uTztovTYYoYEZNE2a6pLhjQmsiavIqLH1xmu1gdJolqug4KlSautaZasnINuyToAs6Y4qkrl5Sj+v29qFj7StizgSTNugMpc6eqLmQhAgBCpolTACBYokjiSW1ePnLGqNiwI6xLrNY0dkIAoLNEkaKlitWamZOcNCu3vB62yhxaAECrVcVz21GycI2tW0CnqWKV24AgyaL13rfDWaVLyxYgiDWw82TRyjaQmvUk59zexPYAkh+8C5QqVk+BSCrxXjBlvuVGF+fSh5B4z62qCkmRq5h/3gpbK42rShcvSsEILZVCzl1TaSsoW74ZZStftHS51VJDgDyE6EWw9h+fWcpTZ8RVFYxQtgGbi0VqrRTSkdBWFo+g8bSmr6vd/0+cHDfDtslXXTKGOLTbJqDlcBVKo1Y/vlBoOvGppo6gCAdATUWjmmwCtnkLiw6AvneMh3PxTNWl7ALFpSia9ZRtDqKay8YRAOwsHKk1S3hHq4BVd26tV1MKJK1+dw8Kp8y3bfnXVTiy6UpoS+lYPVnCW2vXqocXegUkz6C44YNVT6byCjhvheIWZtOnr3Sssgo4s8ZLNuUQpHJx5H2jxw/PChcsijamJBRKJJHaT4CSMYaKR9t5I6DJT6WKYckJatUdbCfLyl3brNIxtOSTPYJyEWm1SdR/ma/4AtYf/Zc2GcxqbbR8PPFxNM1zhUPGQbN40kJHl/sV5yDFV2z4KypffE3LcG3aUs3ChMnjED/ye2A94zXTESEyKCDhyowiX6eGB1X1z+yyDuo1BzfPFpWSrT98HHWff4W6z44G///p4TaTSVVB44YMQswFaYi7zIW44S7EDhqga9JbxrWgerlWBHZk9euIhioANB0IbYkipiU47dkF6HHVMF3nAa2KM9qeAkNLl21AxfOvGiVlpP9ht993qRoCqgGQnzp6HOfyG2qImt3GqF++2fyEoidKkgjGpPGu4l1vqpFbNQCImN1uYxTKnTTjdkNVvNUoRXMbKlHzyWGUPP6s7cEfrd291MihCQDBrSDrI4CPUEPcijZmR/Aa5VGstHFsv9vvHalFJh0A8FAJr/3NFce0DGZmWzLKJM2cjF7XjzJ0YNPLE7041ngPoOwPL9j+q2+SgQMY4fb7DmiRSTMAlK0g1TOVc9hbC71JSloREu/LRp+fXoeYgf0tPyjSL75m18eoWL9DqMqgjGGaq9i3UcvkU1tdAAhuBZk5AHtU64BWtqcrXcId49DT8wPEDEpXXXO4U544VzKGkzGn+m8fKrYF8YpP8afd/t1z9ehWNwCCh0LPNg5k6xk4HH2o0hillKf6vo4BTsT07wfExULq2aP9SkETXVMH1Deg8XQJGr85hbov81H9pred7SAcvKsdg9K8uPy+SWrbn9vOEAA4sh35zgKKdcrSy0B3P0Ma8Lr86dcxbA/opWIIADTo8bRR/eVA7Hui1R3Wq5CI6cdxSHI0jBlctO+0EZ4NA4AGb8oy8haAIUaY6e6rWgPHuCTfNKRoT77qHiEamgIAon3EmZkRA0avL90gMDornfc/1gh+yzD/7qNmDGMaAFpWgoCU270dmDE1HdDgOMQd8gQzfvnN1E0FQMuZQI7d3n0wNB0EXklqyDa655t6CwglIt0OjjsLtop8RTR9eiwkSFe9wf70yUZO+6HYM30FaD2QiMYiC+fJItL6jTxqGLIUAMRAk9l4vRGroxpBorANZwz36jHvatGF5QAgZvKc9IDE1tr5iqhFKfa3ZfsBPkPrw44evsMCgGbG7PYn0KOgcPfR+p5vlL+wAiC4JSieRcsBDDfKfJT1P8yYNEetJ49ZsocdAC2rgSBh6GYp0ggdtQ6cRsaw5RbQFcOKyznHQnBM6KptVP6dITfAsLgr120rZbdtBWgtVFME0rzzyHjklcGWDfV7bXGyba17IQDQzBAFpDokaTaP0udlitINyPKqoaV7dlj5q9ZCWygANDOu5CfgfHrUbA0MuZyxdUOKvO9omZxwtBUSAM2CU7oazqRfcs6nALgoHAoxcYwTjLEtjMsvDDbp5c5E3lpICQ2Ac88JDs4nguFWDiRboQyjNCkJIzh2BhjbIcL+rkaeiAFAa2Foi5BkeSzn7Abbn545DjHG35cl6R0Rl/iuQBCRAGgtlJLqXpI8jEujAH41B64E0LcrwXX+vYqBIqXZx5zJ+wKy7Mso2XtSJy0hukU8ADrSIrmoSbJjWIBxt4OziwE+EMAADjgZkMSBPgDiGRBD/TnQCKCWAWc4UM4AP4BCgH0XYPwbB2d5shQ4YqYjhhCz//9M/B8ozRrHANHAxQAAAABJRU5ErkJggg=="
+          alt=""
+          srcset=""
+          width="43"
+        />
+        <h1><kbd>Sandesh Dawkhar</kbd></h1>
+      </div>
+      <nav>
+        <a href="" id="under">Home</a>
+        <a href="#Skill-Set">Skill-Set</a>
+        <a href="#About">About</a>
+        <a href="#Projects">Projects</a>
+        <a href="#Contact">Contact</a>
+      </nav>
+      <div class="hire">
+        <a href="">
+          <button class="butt">Hire Me</button>
+        </a>
+      </div>
+    </header>
+    <hr />
+    <main>
+      <section id="hero">
+        <div class="meimg">
+          <img
+            src="assets/shane_s_reloaded.png"
+            src="/assets/profile-pic.png"
+            src="assets/shane_s_reloaded.png"
+            alt="Avatar"
+            width="100%"
+            height="auto"
+          />
+        </div>
+        <div class="meinfo">
+          <h1>
+            Hello, <br />
+            I'm
+            <span style="color: burlywood; background-color: transparent"
+              >Sandesh</span
+            >
+          </h1>
+          <p>
+            I'm an avid tech savvy
+            <span class="typewri"
+              >Full-stack developer </span
+            >,<br />
+            based in India with keen interest in numerous technologies
+            <br />such as A.I, M.L, Web, etc.
+          </p>
+          <button class="butt">More...</button>
+          <br /><br />
+
+          <div id="socials">
+            <p>Check Out My:&nbsp;</p>
+            <i class="ri-github-fill" title="Github"></i>
+            <i class="ri-linkedin-box-fill" title="Linkedin"></i>
+            <i class="ri-instagram-line" title="Instagram"></i>
+            <i class="ri-codepen-line" title="Codepen"></i>
+          </div>
+        </div>
+      </section>
+
+      <section class="tech_stack">
+        <div class="minicov"></div>
+        <div class="coverit"><h1 id="Skill-Set">Skill-Set</h1></div>
+        <div class="coveritv2"></div>
+        <div class="ts">
+          <div class="skinfo">
+            <img src="/Portfolio/assets/skills.png" alt="" width="200px" />
+            <h1>This are <span>skills</span>,</h1>
+            <p>
+              which I posses as well make use of <br />
+              on daily basis as a developer.
+            </p>
+          </div>
+          <div class="tsc">
+            <canvas id="programmingChart" width="500" height="550"> </canvas>
+          </div>
+        </div>
+      </section>
+      <section class="about">
+        <div class="coverit"><h1 id="About">About</h1></div>
+        <div class="card card1">
+          <h1>Welcome to My Digital Space.🌐</h1>
+          <img src="/Portfolio/assets/profile-pic.png" alt="" width="200px" />
+          <div class="pi">
+            <p><span>Name:</span>Sandesh Prakash Dawkhar</p>
+            <p><span>Role:</span> Full-stack Developer</p>
+            <p><span>Birthdate:</span> 13/06/2005</p>
+            <p><span>E-mail:</span> sandeshdawkhar13@gmail.com</p>
+          </div>
+        </div>
+        <div class="card card2">
+          <h1>Other details.⁉️</h1>
+          <p>
+            <span>Description:</span>A passionate developer currently honing
+            frontend skills and exploring cutting-edge web technologies. I am
+            eager to collaborate on impactful projects, bringing creativity and
+            technical expertise to the table.
+          </p>
+          <p><span>Hobbies:</span>Collecting Coins</p>
+          <p><span>Other interests:</span>Cinema enthusiast,Astrophile</p>
+        </div>
+      </section>
+      <section class="proj">
+        <div class="coverit"><h1 id="Projects">Projects</h1></div>
+        <div class="sliderproj">
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+        </div>
+        <div class="projinfo">
+          <h1>Discover my work.</h1>
+        </div>
+        <div class="sliderprojv2">
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+            <a href=""
+              ><img
+                src="/Portfolio/assets/projholder.png"
+                alt=""
+                width="350px"
+                height="auto"
+            /></a>
+        </div>
+      </section>
+      <section class="contact">
+        <div class="coverit"><h1 id="Contact">Contact me</h1></div>
+        <div class="csec">
+
+            <form id="emailForm">
+              <fieldset>
+                <legend>Contact</legend>
+                <div class="naam">
+                  <label for="name">Name:
+                    <input type="text" id="name" placeholder="Enter Your name."  maxlength="100" required>
+                </div>
+                <div class="email">
+                  <label for="email">E-mail: 
+                    <input type="email" name="email" id="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" size="50" required placeholder="example@gmail.com" wrap="soft">
+                  </label>
+                </div>
+                <div class="message">
+                  <label for="message">Message:
+                    <textarea name="message" id="message" cols="30" rows="5" wrap="soft" required placeholder="Say hi!!"></textarea>
+                  </label>
+                </div>
+                <div class="submit">
+                  <label for="submit">
+                    <input type="submit" value="Send" class="butt">
+                  </label>
+                </div>
+              </fieldset>
+            </form>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+    <script src="app.js"></script>
+  </body>
+</html>
