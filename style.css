@@ -148,9 +148,9 @@ hr{
     width: 100%; /* Set width to make the image responsive */
     height: 99vh; /* Set height to see the image clearly */
     margin-top: 65px;
-    background-color: #000;
     overflow: hidden;
-    background-image: linear-gradient(to right top, #000000, #3e3035, #7a5d6d, #b990ad, #f8c7f6);
+    background-image: linear-gradient(to right top, #302c30, #2c262a, #272123, #221c1d, #1d1717);
+    position: relative;
 }
 #hero::selection{
     background-color: rgba(211, 251, 216 ,0.5);
@@ -162,11 +162,15 @@ hr{
     img{
         height: 100%;
         width: 100%;
-        background-color: #e1ebc5;
+        /* background-image: linear-gradient(to right top, #302c30, #2c262a, #272123, #221c1d, #1d1717); */
+    
+        background-color: transparent;
         border: 0px black solid;
         object-fit: cover;
-        object-position: top;
+        object-position: center;
         border-bottom-right-radius: 25px;
+        filter: drop-shadow(8px -1px 10px #e5d8d8);
+        
     }
 }
 .meinfo{
@@ -416,6 +420,7 @@ hr{
         border-radius: 50px;
         text-align: center;
         text-wrap: wrap;
+        transform: scale(0.9);
         img{
             border-radius: 100px;
             box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
@@ -439,8 +444,13 @@ hr{
 
         }
     .card:hover{
-        transform: scale(.95);
+        animation: shrink 5s ease;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+}
+@keyframes shrink{
+    to{
+        transform: scale(1);
     }
 }
 .proj{
